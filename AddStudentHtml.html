@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .column  {
+        float:  left;
+        width: 50%;
+        padding: 10px;
+      }
+      .row::after {
+        content: "";
+        display: table;
+        clear:  both;
+      }
+
+      .button {
+        float: right;
+      }
+      
+      .newID {
+        float: left;
+        padding: 0 15px;
+      }
+      
+      input[type=text], [type=date] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    </style>
+    <script>
+      function onSuccess(newID) {
+        var div = document.getElementById('newID');
+        div.innerHTML = "New ID: " + newID;
+      }
+
+      google.script.run.withSuccessHandler(onSuccess)
+          .getNewID();
+    </script>
+  </head>
+  <body>
+    <div id=form>
+      <form id="enrollment" onsubmit="handleFormSubmit(this)">
+        <div class="row">
+          <div class="column">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName"/>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName"/>
+
+            <label for="dateEnrolled">Enrolled on</label>
+            <input type="date" name="dateEnrolled"/>
+          </div>
+          <div class="column">
+            <label for="dojoUsername">Dojo Username</label>
+            <input type="text" name="dojoUsername"/>
+
+            <label for="scratchUsername">Scratch Username</label>
+            <input type="text" name="scratchUsername"/>
+
+            <label for="scratchPassword">Scratch Password</label>
+            <input type="text" name="scratchPassword"/>
+          </div>
+        </div>
+        <b><div class="newID" id="newID"></div></b>
+        <div class="button">
+          <input type="submit" value="Enroll">
+          <input type="button" value="Close" onclick="google.script.host.close()">
+        </div>
+      </form>
+    </div>
+  </body>

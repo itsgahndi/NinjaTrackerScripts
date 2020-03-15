@@ -1,0 +1,22 @@
+{
+  "timeZone": "America/New_York",
+  "dependencies": {
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "sheets": {
+    "macros": [{
+      "menuName": "Fix Alternating Colors",
+      "functionName": "UntitledMacro"
+    }, {
+      "menuName": "Fix Formulas",
+      "functionName": "FixFormulas"
+    }, {
+      "menuName": "Fix Gradebook Borders",
+      "functionName": "FixGradebookBorders"
+    }, {
+      "menuName": "ID",
+      "functionName": "ID"
+    }]
+  }
+}

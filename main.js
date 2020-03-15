@@ -1,0 +1,4 @@
+function onOpen() {
+  studentManagement();
+  updateAlert();
+}
