@@ -9,7 +9,7 @@ function studentManagement() {
 function addStudent() {
   var ui = SpreadsheetApp.getUi();
   var html = HtmlService
-    .createHtmlOutputFromFile('AddStudentHtml')
+    .createHtmlOutputFromFile('src/html/AddStudentHtml')
     .setHeight(250)
     .setWidth(500);
   ui.showModalDialog(html, 'Add Student');
@@ -18,7 +18,7 @@ function addStudent() {
 function remStudent() {
   var ui = SpreadsheetApp.getUi();
   var html = HtmlService
-    .createHtmlOutputFromFile('RemStudentHtml')
+    .createHtmlOutputFromFile('src/html/RemStudentHtml')
     .setHeight(300)
     .setWidth(500);
   ui.showModalDialog(html, 'Remove Student');
@@ -41,4 +41,15 @@ function getNewID() {
       tempLarge = next;
   }
   return tempLarge + 1;
+}
+
+function processData(newStudent) {
+  var firstName = newStudent.firstName;
+  var lastName = newStudent.lastName;
+  var dateEnrolled = newStudent.dateEnrolled;
+  var dojoUsername = newStudent.dojoUsername;
+  var scratchUsername = newStudent.scratchUsername;
+  var scratchPassword = newStudent.scratchPassword;
+
+  Logger.log(firstName + " " + lastName + " " + dateEnrolled);
 }

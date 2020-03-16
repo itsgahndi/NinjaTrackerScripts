@@ -21,12 +21,17 @@
       .button {
         float: right;
       }
-      
+
       .newID {
         float: left;
         padding: 0 15px;
       }
-      
+
+      .confirmation {
+        float: left;
+        padding: 0 15px;
+      }
+
       input[type=text], [type=date] {
         width: 100%;
         padding: 12px 20px;
@@ -42,39 +47,48 @@
         var div = document.getElementById('newID');
         div.innerHTML = "New ID: " + newID;
       }
-
       google.script.run.withSuccessHandler(onSuccess)
           .getNewID();
+
+      function confirmation() {
+        var div = document.getElementById('confirmation');
+        div.innerHTML = "Done.";
+      }
+
+      function processData() {
+        google.script.run.withSuccessHandler(confirmation).processData(this.enrollment);
+      }
     </script>
   </head>
   <body>
     <div id=form>
-      <form id="enrollment" onsubmit="handleFormSubmit(this)">
+      <form id="enrollment">
         <div class="row">
           <div class="column">
             <label for="firstName">First Name</label>
-            <input type="text" name="firstName"/>
+            <input type="text" name="firstName" id="firstName"/>
 
             <label for="lastName">Last Name</label>
-            <input type="text" name="lastName"/>
+            <input type="text" name="lastName" id="lastName"/>
 
             <label for="dateEnrolled">Enrolled on</label>
-            <input type="date" name="dateEnrolled"/>
+            <input type="date" name="dateEnrolled" id="dateEnrolled"/>
           </div>
           <div class="column">
             <label for="dojoUsername">Dojo Username</label>
-            <input type="text" name="dojoUsername"/>
+            <input type="text" name="dojoUsername" id="dojoUsername"/>
 
             <label for="scratchUsername">Scratch Username</label>
-            <input type="text" name="scratchUsername"/>
+            <input type="text" name="scratchUsername" id="scratchUsername"/>
 
             <label for="scratchPassword">Scratch Password</label>
-            <input type="text" name="scratchPassword"/>
+            <input type="text" name="scratchPassword" id="scratchPassword"/>
           </div>
         </div>
         <b><div class="newID" id="newID"></div></b>
+        <div class="confirmation" id="confirmation"></div>
         <div class="button">
-          <input type="submit" value="Enroll">
+          <input type="submit" value="Enroll" onclick="processData()">
           <input type="button" value="Close" onclick="google.script.host.close()">
         </div>
       </form>
