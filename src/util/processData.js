@@ -8,5 +8,5 @@ function processData(newStudent) {
   var scratchUsername = newStudent.scratchUsername;
   var scratchPassword = newStudent.scratchPassword;
 
-  Logger.log(firstName + " " + lastName + " " + dateEnrolled);
+  populateRowAddStudent(firstName, lastName, dateEnrolled, dojoUsername, scratchUsername, scratchPassword);
 }
