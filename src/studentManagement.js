@@ -9,7 +9,7 @@ function studentManagement() {
 function addStudent() {
   var ui = SpreadsheetApp.getUi();
   var html = HtmlService
-    .createHtmlOutputFromFile('src/studentManagement/html/AddStudentHtml')
+    .createHtmlOutputFromFile('src/StudentManagement/html/AddStudentHtml')
     .setHeight(250)
     .setWidth(500);
   ui.showModalDialog(html, 'Add Student');
@@ -18,7 +18,7 @@ function addStudent() {
 function remStudent() {
   var ui = SpreadsheetApp.getUi();
   var html = HtmlService
-    .createHtmlOutputFromFile('src/studentManagement/html/RemStudentHtml')
+    .createHtmlOutputFromFile('src/StudentManagement/html/RemStudentHtml')
     .setHeight(300)
     .setWidth(500);
   ui.showModalDialog(html, 'Remove Student');
